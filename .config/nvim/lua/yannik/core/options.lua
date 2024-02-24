@@ -20,7 +20,7 @@ opt.smartcase = true -- if you include mixed cases in search, assume you want a 
 -- Cursor line
 opt.cursorline = true
 
-opt.termguicolors = false 
+-- opt.termguicolors = false
 opt.signcolumn = "yes"
 
 -- Backspace

@@ -13,16 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { import = "yannik.plugins"},
-    { import = "yannik.plugins.lsp"}
-    }, 
+    { import = "yannik.plugins.lsp"} },
     { install = {
-         colorscheme = { "catppuccin" },
+        colorscheme = { "catppuccin" },
     },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
+        checker = {
+            enabled = true,
+            notify = false,
+        },
+        change_detection = {
+            notify = false,
+        },
+    })

@@ -1,36 +1,61 @@
 return {
-    "williamboman/mason.nvim",
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-    },
-    config = function()
-        local mason = require("mason")
+	"williamboman/mason.nvim",
+	dependencies = {
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+	},
+	config = function()
+		local mason = require("mason")
 
-        local mason_lspconfig = require("mason-lspconfig")
-
-        mason.setup({
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗",
-                }
-            }
-        })
-
-        mason_lspconfig.setup({
-            ensure_installed = {
-                "tsserver",
-                "html",
-                "cssls",
-                "tailwindcss",
-                "svelte",
-                "lua_ls",
-                "emmet_ls",
-                "pyright",
-                "gopls",
-            },
-            automatic_installation = true,
-        })
-    end
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+			},
+		})
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				-- Language Servers
+				"bash-language-server",
+				"clangd",
+				"css-lsp",
+				"docker-compose-language-service",
+				"dockerfile-language-server",
+				"emmet-language-server",
+				"gopls",
+				"html-lsp",
+				"htmx-lsp",
+				"lua-language-server",
+				"pyright",
+				"rust-analyzer",
+				"tailwindcss-language-server",
+				"templ",
+				"typescript-language-server",
+				"yaml-language-server",
+				-- Linter
+				"biome",
+				"cpplint",
+				"luacheck",
+				-- "mypy",
+				"revive",
+				"ruff",
+				"shellcheck",
+				"typos",
+				"write-good",
+				"yamllint",
+				-- Formatters
+				"beautysh",
+				"clang-format",
+				"gofumpt",
+				"goimports",
+				"markdown-toc",
+				"prettierd",
+				"shfmt",
+				"stylua",
+				"yamlfmt",
+			},
+		})
+	end,
 }
